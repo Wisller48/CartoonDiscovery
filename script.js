@@ -97,6 +97,25 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
+    // Adicionar evento para o botão do banner
+    document.querySelectorAll('.comprar-ingresso').forEach(botao => {
+    botao.addEventListener('click', function (e) {
+        e.preventDefault();
+        const tabId = this.getAttribute('href').replace('#', '');
+        showTab(tabId);
+
+        document.getElementById('detalhes-img').src = this.dataset.img;
+        document.getElementById('detalhes-titulo').textContent = this.dataset.titulo;
+        document.getElementById('detalhes-descricao').textContent = this.dataset.descricao;
+        document.getElementById('detalhes-duracao').textContent = this.dataset.duracao;
+        document.getElementById('detalhes-classificacao').textContent = this.dataset.classificacao;
+        document.getElementById('detalhes-horarios').textContent = this.dataset.horarios;
+        document.getElementById('detalhes-elenco').textContent = this.dataset.elenco;
+        document.getElementById('detalhes-sala').textContent = this.dataset.sala;
+    });
+});
+
+
     // Manipular o envio do formulário de login
     const loginForm = document.getElementById("loginForm");
     loginForm.addEventListener("submit", function (e) {
